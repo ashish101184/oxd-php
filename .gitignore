@@ -11,6 +11,7 @@ oxd-communicate-protocols/*
 # User-specific stuff:
 # .idea/workspace.xml
 # .idea/tasks.xml
+/vendor
 # .idea/dictionaries
 
 # Sensitive or high-churn files:
