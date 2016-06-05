@@ -12,6 +12,7 @@ oxd-communicate-protocols/*
 # .idea/workspace.xml
 # .idea/tasks.xml
 /vendor
+/composer.phar
 # .idea/dictionaries
 
 # Sensitive or high-churn files:
