@@ -1,29 +1,102 @@
 <?php
 /**
- * Class main, which is connecting to oxd-server via socket
- * @author Vlad Karapetyan
- * @version 2.4.3, 23/05/2016
+ * Gluu-oxd-library
+ *
+ * An open source application library for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2015, Gluu inc, USA, Austin
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	Gluu-oxd-library
+ * @version 2.4.3
+ * @author	Vlad Karapetyan
+ * @author		vlad.karapetyan.1988@mail.ru
+ * @copyright	Copyright (c) 2015, Gluu inc federation (https://gluu.org/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	https://gluu.org/
+ * @since	Version 2.4.3
+ * @filesource
  */
 
+/**
+ * Client OXD RP class
+ *
+ * Class is basic, which is connecting to oxd-server via socket
+ *
+ * @package		Gluu-oxd-library
+ * @subpackage	Libraries
+ * @category	Base class for all protocols
+ * @author		Vlad Karapetyan
+ * @author		vlad.karapetyan.1988@mail.ru
+ * @see	        Client_Socket_OXD_RP
+ * @see	        Oxd_RP_config
+ */
 
 require_once 'Client_Socket_OXD_RP.php';
 require_once 'Oxd_RP_config.php';
 
 abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
 
+    /**
+     * @var array $command_types        Protocols commands name
+     */
     private $command_types = array( 'get_authorization_url','update_site_registration', 'get_tokens_by_code','get_user_info', 'register_site', 'get_logout_uri','get_authorization_code' );
-    protected $data = array();
+    /**
+     * @var string $command             Extend class protocol command name, for sending oxd-server
+     */
     protected $command;
+    /**
+     * @var string $params              Extends class sending parameters to oxd-server
+     */
     protected $params = array();
+    /**
+     * @var string $data                Response data from oxd-server
+     */
+    protected $data = array();
+    /**
+     * @var string $response_json       Response data from oxd-server in format json
+     */
     protected $response_json;
+    /**
+     * @var object $response_object     Response data from oxd-server in format object
+     */
     protected $response_object;
+    /**
+     * @var string $response_status     Response status from oxd-server
+     */
     protected $response_status;
+    /**
+     * @var array $response_data        Response data from oxd-server in format array
+     */
     protected $response_data = array();
 
 
     /**
-     * abstract Client_oxd constructor.
-     * @param base_url String
+     * Constructor
+     *
+     * Initialize base url for log file directory and oxd-rp-setting.json file.
+     *
+     * @param string $base_url
+     * @return	void
      */
     public function __construct($base_url)
     {
@@ -49,6 +122,7 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
      *
      * Args:
      * command (dict) - Dict representation of the JSON command string
+     * @return	void
      **/
     public function request()
     {
@@ -85,7 +159,9 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
-     * @return response_status
+     * Response status
+     *
+     * @return string, OK on success, error on failure
      */
     public function getResponseStatus()
     {
@@ -93,7 +169,9 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
-     * @param mixed $response_status
+     * Setting response status
+     *
+     * @return	void
      */
     public function setResponseStatus()
     {
@@ -101,7 +179,9 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
-     * @return mixed
+     * If data is not empty it is returning response data from oxd-server in format array.
+     * If data empty or error , you have problem with parameter or protocol.
+     * @return array
      */
     public function getResponseData()
     {
@@ -115,6 +195,8 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
+     * Data which need to send oXD server.
+     *
      * @return array
      */
     public function getData()
@@ -124,6 +206,8 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
+     * Protocol name for request.
+     *
      * @return string
      */
     public function getCommand()
@@ -132,34 +216,43 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
-     * @param string $command
+     * Setting protocol name for request.
+     *
+     * @return void
      */
     abstract function setCommand();
 
     /**
-     * getResult function geting result from oxD server.
-     * Return: response_object - The JSON response parsing to object
-     **/
+     * If response data is not empty it is returning response data from oxd-server in format object.
+     * If response data empty or error , you have problem with parameter or protocol.
+     *
+     * @return object
+     */
     public function getResponseObject()
     {
         return $this->response_object;
     }
 
     /**
-     * function getting result from oxD server.
-     * return: response_json - The JSON response from the oxD Server
-     **/
+     * If response data is not empty it is returning response data from oxd-server in format json.
+     * If response data empty or error , you have problem with parameter or protocol.
+     * @return string
+     */
     public function getResponseJSON()
     {
         return $this->response_json;
     }
 
     /**
-     * @param array $params
+     * Setting parameters for request.
+     *
+     * @return void
      */
     abstract function setParams();
 
     /**
+     * Parameters for request.
+     *
      * @return array
      */
     public function getParams()
@@ -168,7 +261,8 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
-     * checking format string.
+     * Checking format string.
+     *
      * @param  string  $string
      * @return bool
      **/
