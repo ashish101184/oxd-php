@@ -7,6 +7,6 @@
   "application_type" : "web",
   "redirect_uris" : [ "" ],
   "response_types" : ["code"],
-  "grant_types":"authorization_code",
+  "grant_types":["authorization_code"],
   "acr_values" : [ "basic", "duo" ]
 }

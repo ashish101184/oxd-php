@@ -93,7 +93,7 @@ class Oxd_RP_config
     public static $response_types;
     /**
      * @static
-     * @var string $grant_types        OpenID Token Request type
+     * @var array $grant_types        OpenID Token Request type
      */
     public static $grant_types;
 
