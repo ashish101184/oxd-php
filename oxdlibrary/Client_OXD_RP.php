@@ -27,13 +27,13 @@
  * THE SOFTWARE.
  *
  * @package	Gluu-oxd-library
- * @version 2.4.3
+ * @version 2.4.4
  * @author	Vlad Karapetyan
  * @author		vlad.karapetyan.1988@mail.ru
  * @copyright	Copyright (c) 2015, Gluu inc federation (https://gluu.org/)
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	https://gluu.org/
- * @since	Version 2.4.3
+ * @since	Version 2.4.4
  * @filesource
  */
 
@@ -59,7 +59,19 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     /**
      * @var array $command_types        Protocols commands name
      */
-    private $command_types = array( 'get_authorization_url','update_site_registration', 'get_tokens_by_code','get_user_info', 'register_site', 'get_logout_uri','get_authorization_code' );
+    private $command_types = array( 'get_authorization_url',
+                                    'update_site_registration',
+                                    'get_tokens_by_code',
+                                    'get_user_info',
+                                    'register_site',
+                                    'get_logout_uri',
+                                    'get_authorization_code',
+                                    'uma_rs_protect',
+                                    'uma_rs_check_access',
+                                    'uma_rp_get_rpt',
+                                    'uma_rp_authorize_rpt',
+                                    'uma_rp_get_gat',
+    );
     /**
      * @var string $command             Extend class protocol command name, for sending oxd-server
      */
