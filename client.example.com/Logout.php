@@ -27,13 +27,13 @@
  * THE SOFTWARE.
  *
  * @package	Gluu-oxd-library
- * @version 2.4.2
+ * @version 2.4.3
  * @author	Vlad Karapetyan
  * @author		vlad.karapetyan.1988@mail.ru
  * @copyright	Copyright (c) 2015, Gluu inc federation (https://gluu.org/)
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	https://gluu.org/
- * @since	Version 2.4.2
+ * @since	Version 2.4.3
  * @filesource
  */
 
@@ -57,7 +57,7 @@ class Logout extends Client_OXD_RP
 {
     /**
      * @var string $request_oxd_id                             Need to get after registration site in gluu-server
-    */
+     */
     private $request_oxd_id = null;
     /**
      * @var string $request_id_token                           Need to get after registration site in gluu-server

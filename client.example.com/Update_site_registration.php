@@ -38,9 +38,9 @@
  */
 
 /**
- * Client Register_site class
+ * Oxd client update site registration class
  *
- * Class is connecting to oXD-server via socket, and registering site in gluu server.
+ * Class is connecting to oXD-server via socket, and updating registered site data in gluu server.
  *
  * @package		Gluu-oxd-library
  * @subpackage	Libraries
@@ -54,8 +54,12 @@
 
 require_once 'Client_OXD_RP.php';
 
-class Register_site extends Client_OXD_RP
+class Update_site_registration extends Client_OXD_RP
 {
+    /**
+     * @var string $request_oxd_id                          This parameter you must get after registration site in gluu-server
+     */
+    private $request_oxd_id = null;
     /**
      * @var string $request_authorization_redirect_uri      Site authorization redirect uri
      */
@@ -367,12 +371,29 @@ class Register_site extends Client_OXD_RP
         $this->response_oxd_id = $response_oxd_id;
     }
     /**
+     * @return string
+     */
+    public function getRequestOxdId()
+    {
+        return $this->request_oxd_id;
+    }
+
+    /**
+     * @param string $request_oxd_id
+     * @return void
+     */
+    public function setRequestOxdId($request_oxd_id)
+    {
+        $this->request_oxd_id = $request_oxd_id;
+    }
+
+    /**
      * Protocol command to oXD server
      * @return void
      */
     public function setCommand()
     {
-        $this->command = 'register_site';
+        $this->command = 'update_site_registration';
     }
     /**
      * Protocol parameter to oXD server
@@ -382,6 +403,7 @@ class Register_site extends Client_OXD_RP
     {
         $this->params = array(
             "authorization_redirect_uri" => $this->getRequestAuthorizationRedirectUri(),
+            "oxd_id" => $this->getRequestOxdId(),
             "post_logout_redirect_uri" => $this->getRequestLogoutRedirectUri(),
             "application_type" => $this->getRequestApplicationType(),
             "redirect_uris" => $this->getRequestRedirectUris(),
@@ -393,6 +415,7 @@ class Register_site extends Client_OXD_RP
             "contacts" => $this->getRequestContacts(),
             "grant_types" => $this->getRequestGrantTypes(),
             "response_types"=> $this->getRequestResponseTypes(),
+            "client_secret_expires_at"=> 1916258400,
             "client_logout_uris"=> [$this->getRequestClientLogoutUris()]
         );
     }
