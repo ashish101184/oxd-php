@@ -2,7 +2,7 @@
 session_start();
 require_once '../Get_tokens_by_code.php';
 
-$get_tokens_by_code = new Get_tokens_by_code('../');
+$get_tokens_by_code = new Get_tokens_by_code();
 
 $get_tokens_by_code->setRequestOxdId($_SESSION['oxd_id']);
 
@@ -13,5 +13,6 @@ $get_tokens_by_code->setRequestScopes($_GET['scope']);
 
 $get_tokens_by_code->request();
 $_SESSION['id_token'] = $get_tokens_by_code->getResponseIdToken();
+$_SESSION['access_token'] = $get_tokens_by_code->getResponseAccessToken();
 print_r($get_tokens_by_code->getResponseObject());
 
