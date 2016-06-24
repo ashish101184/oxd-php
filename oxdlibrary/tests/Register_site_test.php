@@ -5,7 +5,7 @@ session_destroy();
 include_once '../Register_site.php';
 
 $register_site = new Register_site();
-
+$register_site->setRequestOpHost(Oxd_RP_config::$op_host);
 $register_site->setRequestAcrValues(Oxd_RP_config::$acr_values);
 $register_site->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
 $register_site->setRequestRedirectUris(Oxd_RP_config::$redirect_uris);
@@ -21,5 +21,4 @@ $register_site->setRequestScope(Oxd_RP_config::$scope);
 
 $register_site->request();
 $_SESSION['oxd_id'] = $register_site->getResponseOxdId();
-print_r($register_site->getResponseObject());
 
