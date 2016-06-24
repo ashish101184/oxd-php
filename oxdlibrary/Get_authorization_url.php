@@ -27,13 +27,13 @@
  * THE SOFTWARE.
  *
  * @package	Gluu-oxd-library
- * @version 2.4.2
+ * @version 2.4.3
  * @author	Vlad Karapetyan
  * @author		vlad.karapetyan.1988@mail.ru
  * @copyright	Copyright (c) 2015, Gluu inc federation (https://gluu.org/)
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	https://gluu.org/
- * @since	Version 2.4.2
+ * @since	Version 2.4.3
  * @filesource
  */
 
@@ -68,7 +68,7 @@ class Get_authorization_url extends Client_OXD_RP
      * It is authorization url to gluu server.
      * After getting this parameter go to that url and you can login to gluu server, and get response about your users
      * @var string $response_authorization_url
-    */
+     */
     private $response_authorization_url;
 
     /**
@@ -107,8 +107,8 @@ class Get_authorization_url extends Client_OXD_RP
     }
 
     /**
-     * @param string $request_acr_values
-     * @return array
+     * @param array $request_acr_values
+     * @return void
      */
     public function setRequestAcrValues($request_acr_values)
     {

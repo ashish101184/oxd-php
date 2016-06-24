@@ -1,11 +1,11 @@
 {
   "oxd_host_ip": "127.0.0.1",
   "oxd_host_port":8099,
-  "authorization_redirect_uri" : "https://client.example.com/login",
-  "logout_redirect_uri" : "https://client.example.com/logout",
+  "authorization_redirect_uri" : "https://client.example.com/login/index.php",
+  "logout_redirect_uri" : "https://client.example.com/logout/index.php",
   "scope" : [ "openid", "profile" ],
   "application_type" : "web",
-  "redirect_uris" : [ "https://client.example.com/login" ],
+  "redirect_uris" : [ "https://client.example.com/login/index.php" ],
   "response_types" : ["code"],
   "grant_types":["authorization_code"],
   "acr_values" : [ "basic", "duo" ]
