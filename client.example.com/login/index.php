@@ -1,8 +1,6 @@
 
 <?php
-/*
- * Created by Vlad Karapetyan
-*/
+
 session_start();
 
 if (isset($_SESSION['oxd_id'])) {
@@ -17,13 +15,13 @@ if (isset($_SESSION['oxd_id'])) {
 
         echo '<br/>Get_tokens_by_code <br/>';
 
-        $get_tokens_by_code = new Get_tokens_by_code('../');
+        $get_tokens_by_code = new Get_tokens_by_code();
 
 
         $get_tokens_by_code->setRequestOxdId($_SESSION['oxd_id']);
         $get_tokens_by_code->setRequestCode($_GET['code']);
         $get_tokens_by_code->setRequestState($_GET['state']);
-        $get_tokens_by_code->setRequestScopes([ "openid", "profile"]);
+        $get_tokens_by_code->setRequestScopes(Oxd_RP_config::$scope);
 
         $get_tokens_by_code->request();
 
@@ -44,7 +42,7 @@ if (isset($_SESSION['oxd_id'])) {
         var_dump($get_tokens_by_code->getResponseObject());
         echo '</pre>';
 
-        $get_user_info = new Get_user_info('../');
+        $get_user_info = new Get_user_info();
         $get_user_info->setRequestOxdId($_SESSION['oxd_id']);
         $get_user_info->setRequestAccessToken($_SESSION['user_oxd_access_token']);
         $get_user_info->request();
