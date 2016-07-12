@@ -43,7 +43,7 @@ Once composer is installed, execute the following command in your project root t
 
 ### Configuration 
 
-Configuration file is located in 'oxd-rp/oxd-rp-settings.json' file in
+Configuration file is located in 'oxdlibrary/oxd-rp-settings.json' file in
 distribution package.
 
 (Save this as a file called `oxd-rp-settings.json`)
