@@ -5,15 +5,17 @@
  * Created by  Vlad Karapetyan
  */
 session_start();
-if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_mail'])){
+
+if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_mail']) && isset($_POST['gluu_server_url']) && !empty($_POST['gluu_server_url'])){
     if(!$_SESSION['oxd_id']){
         require_once './Register_site.php';
         $register_site = new Register_site();
+        $register_site->setRequestOpHost($_POST['gluu_server_url']);
         $register_site->setRequestAcrValues(Oxd_RP_config::$acr_values);
         $register_site->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
         $register_site->setRequestRedirectUris(Oxd_RP_config::$redirect_uris);
         $register_site->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
-        $register_site->setRequestContacts(["test@test.test"]);
+        $register_site->setRequestContacts([$_POST['your_mail']]);
         $register_site->setRequestClientJwksUri("");
         $register_site->setRequestClientRequestUris([]);
         $register_site->setRequestClientTokenEndpointAuthMethod("");
@@ -58,6 +60,10 @@ else{
     <form method="post" action="/">
         <label for="your_mail">Your email. </label>
         <input type="email" name="your_mail" placeholder="Enter your email." />
+        <br/><br/>
+        <label for="gluu_server_url">Your Gluu server url. </label>
+        <input type="url" name="gluu_server_url" placeholder="Enter Gluu server url." />
+        <br/><br/>
         <input type="submit" name="submit" value="Login" />
     </form>
     <?php

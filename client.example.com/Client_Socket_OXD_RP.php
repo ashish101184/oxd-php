@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2015 - 2016, Gluu inc, USA, Austin
+ * Copyright (c) 2015, Gluu inc, USA, Austin
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,13 +27,13 @@
  * THE SOFTWARE.
  *
  * @package	Gluu-oxd-library
- * @version 2.4.3
+ * @version 2.4.4
  * @author	Vlad Karapetyan
  * @author	vlad.karapetyan.1988@mail.ru
- * @copyright	Copyright (c) 2015 - 2016, Gluu inc federation (https://gluu.org/)
+ * @copyright	Copyright (c) 2015, Gluu inc federation (https://gluu.org/)
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	https://gluu.org/
- * @since	Version 2.4.3
+ * @since	Version 2.4.4
  * @filesource
  */
 
@@ -100,6 +100,7 @@ class Client_Socket_OXD_RP{
      **/
     public function define_variables($configOBJECT){
         Oxd_RP_config::$oxd_host_ip = $configOBJECT->oxd_host_ip;
+        Oxd_RP_config::$op_host = $configOBJECT->op_host;
         Oxd_RP_config::$oxd_host_port = $configOBJECT->oxd_host_port;
         Oxd_RP_config::$authorization_redirect_uri = $configOBJECT->authorization_redirect_uri;
         Oxd_RP_config::$logout_redirect_uri = $configOBJECT->logout_redirect_uri;
@@ -165,3 +166,4 @@ class Client_Socket_OXD_RP{
 
 
 }
+

@@ -27,13 +27,13 @@
  * THE SOFTWARE.
  *
  * @package	Gluu-oxd-library
- * @version 2.4.3
+ * @version 2.4.4
  * @author	Vlad Karapetyan
  * @author		vlad.karapetyan.1988@mail.ru
  * @copyright	Copyright (c) 2015, Gluu inc federation (https://gluu.org/)
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	https://gluu.org/
- * @since	Version 2.4.3
+ * @since	Version 2.4.4
  * @filesource
  */
 
@@ -48,9 +48,13 @@
  * @author		Vlad Karapetyan
  * @author		vlad.karapetyan.1988@mail.ru
  */
-
 class Oxd_RP_config
 {
+    /**
+     * @static
+     * @var string $op_host        Gluu server url, which need to connect
+     */
+    public static $op_host;
     /**
      * @static
      * @var string $oxd_host_ip        Socket connection ip
@@ -71,7 +75,8 @@ class Oxd_RP_config
      * @var string $logout_redirect_uri        Site logout redirect uri
      */
     public static $logout_redirect_uri;
-    /*** @static
+    /**
+     * @static
      * @var array $scope        For getting needed scopes from gluu-server
      */
     public static $scope;
@@ -92,7 +97,7 @@ class Oxd_RP_config
     public static $response_types;
     /**
      * @static
-     * @var array $grant_types.        OpenID Token Request type
+     * @var array $grant_types        OpenID Token Request type
      */
     public static $grant_types;
 

@@ -1,12 +1,13 @@
 {
   "oxd_host_ip": "127.0.0.1",
+  "op_host": "https://ce-dev2.gluu.org",
   "oxd_host_port":8099,
   "authorization_redirect_uri" : "https://client.example.com/login/index.php",
   "logout_redirect_uri" : "https://client.example.com/logout/index.php",
-  "scope" : [ "openid", "profile" ],
+  "scope" : [ "openid", "profile","uma_protection","uma_authorization" ],
   "application_type" : "web",
-  "grant_types":["authorization_code"],
   "redirect_uris" : [ "https://client.example.com/login/index.php" ],
   "response_types" : ["code"],
-  "acr_values" : [ "basic" ]
+  "grant_types":["authorization_code"],
+  "acr_values" : [ "basic", "duo","u2f","gplus", "oxpush2" ]
 }
