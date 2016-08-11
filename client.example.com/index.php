@@ -5,9 +5,9 @@
  * Created by  Vlad Karapetyan
  */
 session_start();
-
+//session_destroy();exit;
 if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_mail']) && isset($_POST['gluu_server_url']) && !empty($_POST['gluu_server_url'])){
-    if(!$_SESSION['oxd_id']){
+    if(empty($_SESSION['oxd_id'])){
         require_once './Register_site.php';
         $register_site = new Register_site();
         $register_site->setRequestOpHost($_POST['gluu_server_url']);
@@ -44,6 +44,7 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
             $update_site_registration->setRequestClientLogoutUri(Oxd_RP_config::$logout_redirect_uri);
             $update_site_registration->setRequestScope(Oxd_RP_config::$scope);
             $update_site_registration->request();
+            $_SESSION['oxd_id'] = $update_site_registration->getResponseOxdId();
         }
 
     }
@@ -54,6 +55,7 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
     $get_authorization_url->request();
 
     header("Location: ".$get_authorization_url->getResponseAuthorizationUrl());
+    exit;
 }
 else{
     ?>

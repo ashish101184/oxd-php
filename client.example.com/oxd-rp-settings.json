@@ -6,8 +6,8 @@
   "logout_redirect_uri" : "https://client.example.com/logout/index.php",
   "scope" : [ "openid", "profile","uma_protection","uma_authorization" ],
   "application_type" : "web",
-  "redirect_uris" : [ "https://client.example.com/login/index.php" ],
+  "redirect_uris" : [ "https://client.example.com/login/index.php" , "https://client.example.com/logout/index.php"],
   "response_types" : ["code"],
   "grant_types":["authorization_code"],
-  "acr_values" : [ "basic", "duo","u2f","gplus", "oxpush2" ]
+  "acr_values" : [ "basic" ]
 }

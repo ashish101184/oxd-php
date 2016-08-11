@@ -2,7 +2,6 @@
 <?php
 
 session_start();
-
 if (isset($_SESSION['oxd_id'])) {
 
     if (isset($_GET['code']) && isset($_GET['state']) && !empty($_GET['code']) && !empty($_GET['state'])) {
@@ -25,19 +24,11 @@ if (isset($_SESSION['oxd_id'])) {
 
         $get_tokens_by_code->request();
 
-        if (isset($_SESSION['user_oxd_id_token']) && !empty($_SESSION['user_oxd_id_token'])){
-            unset($_SESSION['user_oxd_id_token']);
-            unset($_SESSION['user_oxd_access_token']);
+
             $_SESSION['user_oxd_id_token'] = $get_tokens_by_code->getResponseIdToken();
             $_SESSION['user_oxd_access_token'] = $get_tokens_by_code->getResponseAccessToken();
             $_SESSION['state'] = $_REQUEST['state'];
             $_SESSION['session_state'] = $_REQUEST['session_state'];
-        }else{
-            $_SESSION['user_oxd_id_token'] = $get_tokens_by_code->getResponseIdToken();
-            $_SESSION['user_oxd_access_token'] = $get_tokens_by_code->getResponseAccessToken();
-            $_SESSION['state'] = $_REQUEST['state'];
-            $_SESSION['session_state'] = $_REQUEST['session_state'];
-        }
         echo '<pre>';
         var_dump($get_tokens_by_code->getResponseObject());
         echo '</pre>';
