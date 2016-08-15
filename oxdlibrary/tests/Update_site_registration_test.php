@@ -8,7 +8,6 @@ $update_site_registration = new Update_site_registration();
 $update_site_registration->setRequestAcrValues(Oxd_RP_config::$acr_values);
 $update_site_registration->setRequestOxdId($_SESSION['oxd_id']);
 $update_site_registration->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
-$update_site_registration->setRequestRedirectUris(Oxd_RP_config::$redirect_uris);
 $update_site_registration->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
 $update_site_registration->setRequestContacts(["test@test.test"]);
 $update_site_registration->setRequestClientJwksUri("");

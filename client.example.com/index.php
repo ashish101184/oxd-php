@@ -13,7 +13,6 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
         $register_site->setRequestOpHost($_POST['gluu_server_url']);
         $register_site->setRequestAcrValues(Oxd_RP_config::$acr_values);
         $register_site->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
-        $register_site->setRequestRedirectUris(Oxd_RP_config::$redirect_uris);
         $register_site->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
         $register_site->setRequestContacts([$_POST['your_mail']]);
         $register_site->setRequestClientJwksUri("");
@@ -33,7 +32,6 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
             $update_site_registration->setRequestAcrValues(Oxd_RP_config::$acr_values);
             $update_site_registration->setRequestOxdId($_SESSION['oxd_id']);
             $update_site_registration->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
-            $update_site_registration->setRequestRedirectUris(Oxd_RP_config::$redirect_uris);
             $update_site_registration->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
             $update_site_registration->setRequestContacts(["test@test.test"]);
             $update_site_registration->setRequestClientJwksUri("");
