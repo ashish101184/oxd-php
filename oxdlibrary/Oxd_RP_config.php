@@ -87,11 +87,6 @@ class Oxd_RP_config
     public static $application_type;
     /**
      * @static
-     * @var array $redirect_uris        Site redirect uris after login or logout
-     */
-    public static $redirect_uris;
-    /**
-     * @static
      * @var array $response_types        OpenID Authentication response types
      */
     public static $response_types;

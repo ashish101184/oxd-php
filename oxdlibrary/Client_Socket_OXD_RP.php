@@ -106,7 +106,6 @@ class Client_Socket_OXD_RP{
         Oxd_RP_config::$logout_redirect_uri = $configOBJECT->logout_redirect_uri;
         Oxd_RP_config::$scope = $configOBJECT->scope;
         Oxd_RP_config::$application_type = $configOBJECT->application_type;
-        Oxd_RP_config::$redirect_uris = $configOBJECT->redirect_uris;
         Oxd_RP_config::$response_types = $configOBJECT->response_types;
         Oxd_RP_config::$grant_types = $configOBJECT->grant_types;
         Oxd_RP_config::$acr_values = $configOBJECT->acr_values;
