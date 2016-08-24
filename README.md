@@ -1,7 +1,6 @@
 # oxd-php
 
-oxd-php is a client library for the Gluu oxd Server. For information 
-about oxd, visit [http://oxd.gluu.org](http://oxd.gluu.org)
+oxd-php is a client library for the Gluu oxd Server. 
 
 ## Installation
 
@@ -44,8 +43,8 @@ Below is a typical configuration data set for registration:
 ``` {.code }
 {
     "oxd_host_port":8099,
-    "redirect_uris" : ["https://www.myapplication.com/welcome" ],
-    "logout_redirect_uri" : "https://www.myapplication.com/logout",
+    "authorization_redirect_uri" : ["https://www.myapplication.com/welcome" ],
+    "post_logout_redirect_uri" : "https://www.myapplication.com/logout",
     "scope" : ["openid", "profile"],
     "acr_values" : ["u2f"]
 }
@@ -59,8 +58,7 @@ Below is a typical configuration data set for registration:
 
 - [Tests on github](https://github.com/GluuFederation/oxd-php/tree/master/client.example.com)
 
-Connecting to oxd server is doing via class Client\_Socket\_OXD\_RP
-[Client\_Socket\_OXD\_RP.php]
+Connecting to oxd server is doing via class Client\_Socket\_OXD\_RP 
 
 
 ### Client\_Socket\_OXD\_RP.php 
@@ -127,7 +125,6 @@ $register_site = new Register_site();
 $register_site->setRequestOpHost(Oxd_RP_config::$op_host);
 $register_site->setRequestAcrValues(Oxd_RP_config::$acr_values);
 $register_site->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
-$register_site->setRequestRedirectUris(Oxd_RP_config::$redirect_uris);
 $register_site->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
 $register_site->setRequestContacts(["test@test.test"]);
 $register_site->setRequestClientJwksUri("");
@@ -164,7 +161,6 @@ $update_site_registration = new Update_site_registration();
 $update_site_registration->setRequestAcrValues(Oxd_RP_config::$acr_values);
 $update_site_registration->setRequestOxdId($_SESSION['oxd_id']);
 $update_site_registration->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
-$update_site_registration->setRequestRedirectUris(Oxd_RP_config::$redirect_uris);
 $update_site_registration->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
 $update_site_registration->setRequestContacts(["test@test.test"]);
 $update_site_registration->setRequestClientJwksUri("");
