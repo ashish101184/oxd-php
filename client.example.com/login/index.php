@@ -19,8 +19,6 @@ if (isset($_SESSION['oxd_id'])) {
 
         $get_tokens_by_code->setRequestOxdId($_SESSION['oxd_id']);
         $get_tokens_by_code->setRequestCode($_GET['code']);
-        $get_tokens_by_code->setRequestState($_GET['state']);
-        $get_tokens_by_code->setRequestScopes(Oxd_RP_config::$scope);
 
         $get_tokens_by_code->request();
 
