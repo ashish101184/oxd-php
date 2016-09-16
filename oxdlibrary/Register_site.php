@@ -519,7 +519,7 @@ class Register_site extends Client_OXD_RP
             "client_jwks_uri" => $this->getRequestClientJwksUri(),
             "client_token_endpoint_auth_method" => $this->getRequestClientTokenEndpointAuthMethod(),
             "client_request_uris" => $this->getRequestClientRequestUris(),
-            "client_logout_uris"=> $this->getRequestClientLogoutUris(),
+            "client_logout_uris"=> [$this->getRequestClientLogoutUris()],
             "client_sector_identifier_uri"=> $this->getRequestClientSectorIdentifierUri(),
             "contacts" => $this->getRequestContacts(),
             "ui_locales" => $this->getRequestUiLocales(),
