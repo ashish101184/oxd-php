@@ -9,7 +9,7 @@
 
     $logout = new Logout();
     $logout->setRequestOxdId($_SESSION['oxd_id']);
-    $logout->setRequestPostLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
+    $logout->setRequestPostLogoutRedirectUri(Oxd_RP_config::$post_logout_redirect_uri);
     $logout->setRequestIdToken($_SESSION['user_oxd_id_token']);
     $logout->setRequestSessionState($_SESSION['session_state']);
     $logout->setRequestState($_SESSION['state']);

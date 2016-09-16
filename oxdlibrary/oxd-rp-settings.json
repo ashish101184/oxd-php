@@ -2,7 +2,7 @@
   "op_host": "",
   "oxd_host_port":8099,
   "authorization_redirect_uri" : "",
-  "logout_redirect_uri" : "",
+  "post_logout_redirect_uri" : "",
   "scope" : [ "openid", "profile","uma_protection","uma_authorization" ],
   "application_type" : "web",
   "redirect_uris" : [ ],

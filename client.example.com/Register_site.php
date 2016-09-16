@@ -77,9 +77,9 @@ class Register_site extends Client_OXD_RP
      */
     private $request_client_secret = null;
     /**
-     * @var string $request_logout_redirect_uri             Site logout redirect uri
+     * @var string $request_post_logout_redirect_uri             Site logout redirect uri
      */
-    private $request_logout_redirect_uri = null;
+    private $request_post_logout_redirect_uri = null;
     /**
      * @var string $request_application_type                web or mobile
      */
@@ -235,7 +235,7 @@ class Register_site extends Client_OXD_RP
      * @param array $request_client_logout_uris
      * @return void
      */
-    public function setRequestClientLogoutUri($request_client_logout_uris)
+    public function setRequestClientLogoutUris($request_client_logout_uris)
     {
         $this->request_client_logout_uris = $request_client_logout_uris;
     }
@@ -294,18 +294,18 @@ class Register_site extends Client_OXD_RP
     /**
      * @return string
      */
-    public function getRequestLogoutRedirectUri()
+    public function getRequestPostLogoutRedirectUri()
     {
-        return $this->request_logout_redirect_uri;
+        return $this->request_post_logout_redirect_uri;
     }
 
     /**
-     * @param string $request_logout_redirect_uri
+     * @param string $request_post_logout_redirect_uri
      * @return void
      */
-    public function setRequestLogoutRedirectUri($request_logout_redirect_uri)
+    public function setRequestPostLogoutRedirectUri($request_post_logout_redirect_uri)
     {
-        $this->request_logout_redirect_uri = $request_logout_redirect_uri;
+        $this->request_post_logout_redirect_uri = $request_post_logout_redirect_uri;
     }
 
     /**
@@ -509,7 +509,7 @@ class Register_site extends Client_OXD_RP
         $this->params = array(
             "authorization_redirect_uri" => $this->getRequestAuthorizationRedirectUri(),
             "op_host" => $this->getRequestOpHost(),
-            "post_logout_redirect_uri" => $this->getRequestLogoutRedirectUri(),
+            "post_logout_redirect_uri" => $this->getRequestPostLogoutRedirectUri(),
             "application_type" => $this->getRequestApplicationType(),
             "response_types"=> $this->getRequestResponseTypes(),
             "grant_types" => $this->getRequestGrantTypes(),
@@ -519,7 +519,7 @@ class Register_site extends Client_OXD_RP
             "client_jwks_uri" => $this->getRequestClientJwksUri(),
             "client_token_endpoint_auth_method" => $this->getRequestClientTokenEndpointAuthMethod(),
             "client_request_uris" => $this->getRequestClientRequestUris(),
-            "client_logout_uris"=> [$this->getRequestClientLogoutUris()],
+            "client_logout_uris"=> $this->getRequestClientLogoutUris(),
             "client_sector_identifier_uri"=> $this->getRequestClientSectorIdentifierUri(),
             "contacts" => $this->getRequestContacts(),
             "ui_locales" => $this->getRequestUiLocales(),

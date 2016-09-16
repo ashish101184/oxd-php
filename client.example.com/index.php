@@ -13,14 +13,10 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
         $register_site->setRequestOpHost($_POST['gluu_server_url']);
         $register_site->setRequestAcrValues(Oxd_RP_config::$acr_values);
         $register_site->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
-        $register_site->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
+        $register_site->setRequestPostLogoutRedirectUri(Oxd_RP_config::$post_logout_redirect_ur);
         $register_site->setRequestContacts([$_POST['your_mail']]);
-        $register_site->setRequestClientJwksUri("");
-        $register_site->setRequestClientRequestUris([]);
-        $register_site->setRequestClientTokenEndpointAuthMethod("");
         $register_site->setRequestGrantTypes(Oxd_RP_config::$grant_types);
         $register_site->setRequestResponseTypes(Oxd_RP_config::$response_types);
-        $register_site->setRequestClientLogoutUri(Oxd_RP_config::$logout_redirect_uri);
         $register_site->setRequestScope(Oxd_RP_config::$scope);
         $register_site->request();
 
@@ -32,14 +28,10 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
             $update_site_registration->setRequestAcrValues(Oxd_RP_config::$acr_values);
             $update_site_registration->setRequestOxdId($_SESSION['oxd_id']);
             $update_site_registration->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
-            $update_site_registration->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
+            $update_site_registration->setRequestPostLogoutRedirectUri(Oxd_RP_config::$post_logout_redirect_uri);
             $update_site_registration->setRequestContacts([$_POST['your_mail']]);
-            $update_site_registration->setRequestClientJwksUri("");
-            $update_site_registration->setRequestClientRequestUris([]);
-            $update_site_registration->setRequestClientTokenEndpointAuthMethod("");
             $update_site_registration->setRequestGrantTypes(Oxd_RP_config::$grant_types);
             $update_site_registration->setRequestResponseTypes(Oxd_RP_config::$response_types);
-            $update_site_registration->setRequestClientLogoutUri(Oxd_RP_config::$logout_redirect_uri);
             $update_site_registration->setRequestScope(Oxd_RP_config::$scope);
             $update_site_registration->request();
             $_SESSION['oxd_id'] = $update_site_registration->getResponseOxdId();

@@ -65,9 +65,9 @@ class Update_site_registration extends Client_OXD_RP
      */
     private $request_authorization_redirect_uri = null;
     /**
-     * @var string $request_logout_redirect_uri             Site logout redirect uri
+     * @var string $request_post_logout_redirect_uri             Site logout redirect uri
      */
-    private $request_logout_redirect_uri = null;
+    private $request_post_logout_redirect_uri = null;
     /**
      * @var string $request_client_name                     OpenID provider client name
      */
@@ -198,7 +198,7 @@ class Update_site_registration extends Client_OXD_RP
      * @param array $request_client_logout_uris
      * @return void
      */
-    public function setRequestClientLogoutUri($request_client_logout_uris)
+    public function setRequestClientLogoutUris($request_client_logout_uris)
     {
         $this->request_client_logout_uris = $request_client_logout_uris;
     }
@@ -257,18 +257,18 @@ class Update_site_registration extends Client_OXD_RP
     /**
      * @return string
      */
-    public function getRequestLogoutRedirectUri()
+    public function getRequestPostLogoutRedirectUri()
     {
-        return $this->request_logout_redirect_uri;
+        return $this->request_post_logout_redirect_uri;
     }
 
     /**
-     * @param string $request_logout_redirect_uri
+     * @param string $request_post_logout_redirect_uri
      * @return void
      */
-    public function setRequestLogoutRedirectUri($request_logout_redirect_uri)
+    public function setRequestPostLogoutRedirectUri($request_post_logout_redirect_uri)
     {
-        $this->request_logout_redirect_uri = $request_logout_redirect_uri;
+        $this->request_post_logout_redirect_uri = $request_post_logout_redirect_uri;
     }
 
     /**
@@ -440,8 +440,8 @@ class Update_site_registration extends Client_OXD_RP
         $this->params = array(
             "oxd_id" => $this->getRequestOxdId(),
             "authorization_redirect_uri" => $this->getRequestAuthorizationRedirectUri(),
-            "post_logout_redirect_uri" => $this->getRequestLogoutRedirectUri(),
-            "client_logout_uris"=> [$this->getRequestClientLogoutUris()],
+            "post_logout_redirect_uri" => $this->getRequestPostLogoutRedirectUri(),
+            "client_logout_uris"=> $this->getRequestClientLogoutUris(),
             "response_types"=> $this->getRequestResponseTypes(),
             "grant_types" => $this->getRequestGrantTypes(),
             "scope" => $this->getRequestScope(),

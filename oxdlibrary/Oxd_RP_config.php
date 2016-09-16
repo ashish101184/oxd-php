@@ -67,9 +67,9 @@ class Oxd_RP_config
     public static $authorization_redirect_uri;
     /**
      * @static
-     * @var string $logout_redirect_uri        Site logout redirect uri
+     * @var string $post_logout_redirect_uri        Site logout redirect uri
      */
-    public static $logout_redirect_uri;
+    public static $post_logout_redirect_uri;
     /**
      * @static
      * @var array $scope        For getting needed scopes from gluu-server
