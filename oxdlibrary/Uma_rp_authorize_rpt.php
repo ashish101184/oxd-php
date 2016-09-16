@@ -41,7 +41,7 @@
 /**
  * UMA RP - Authorize RPT class
  *
- * Class is connecting to oXD-server via socket, and getting authorized RPT status from gluu-server.
+ * Class is connecting to oxd-server via socket, and getting authorized RPT status from gluu-server.
  *
  * @package		Gluu-oxd-library
  * @subpackage	Libraries
@@ -131,7 +131,7 @@ class Uma_rp_authorize_rpt extends Client_OXD_RP{
     }
 
     /**
-     * Protocol command to oXD server
+     * Protocol command to oxd server
      * @return void
      */
     public function setCommand()
@@ -140,7 +140,7 @@ class Uma_rp_authorize_rpt extends Client_OXD_RP{
     }
 
     /**
-     * Protocol parameter to oXD server
+     * Protocol parameter to oxd server
      * @return void
      */
     public function setParams()

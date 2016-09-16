@@ -1,4 +1,4 @@
-<p>OXD login page.</p>
+<p>oxd login page.</p>
 
 <?php
 /**
@@ -33,7 +33,7 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
             $update_site_registration->setRequestOxdId($_SESSION['oxd_id']);
             $update_site_registration->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
             $update_site_registration->setRequestLogoutRedirectUri(Oxd_RP_config::$logout_redirect_uri);
-            $update_site_registration->setRequestContacts(["test@test.test"]);
+            $update_site_registration->setRequestContacts([$_POST['your_mail']]);
             $update_site_registration->setRequestClientJwksUri("");
             $update_site_registration->setRequestClientRequestUris([]);
             $update_site_registration->setRequestClientTokenEndpointAuthMethod("");
@@ -49,6 +49,7 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
     require_once './Get_authorization_url.php';
     $get_authorization_url = new Get_authorization_url();
     $get_authorization_url->setRequestOxdId($_SESSION['oxd_id']);
+    $get_authorization_url->setRequestScope(Oxd_RP_config::$scope);
     $get_authorization_url->setRequestAcrValues(Oxd_RP_config::$acr_values);
     $get_authorization_url->request();
 

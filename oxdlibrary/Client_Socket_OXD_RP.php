@@ -40,7 +40,7 @@
 /**
  * Class socket connection
  *
- * Class for connection to oXD server via socket
+ * Class for connection to oxd server via socket
  *
  * @package		Gluu-oxd-library
  * @subpackage	Libraries
@@ -82,9 +82,6 @@ class Client_Socket_OXD_RP{
         }
         $configOBJECT = json_decode($configJSON);
         $this->define_variables($configOBJECT);
-        if (filter_var(Oxd_RP_config::$oxd_host_ip, FILTER_VALIDATE_IP) === false) {
-            $this->error_message(Oxd_RP_config::$oxd_host_ip." is not a valid IP address");
-        }
 
         if(is_int(Oxd_RP_config::$oxd_host_port) && Oxd_RP_config::$oxd_host_port>=0 && Oxd_RP_config::$oxd_host_port<=65535){
 
@@ -99,7 +96,6 @@ class Client_Socket_OXD_RP{
      * @return void
      **/
     public function define_variables($configOBJECT){
-        Oxd_RP_config::$oxd_host_ip = $configOBJECT->oxd_host_ip;
         Oxd_RP_config::$op_host = $configOBJECT->op_host;
         Oxd_RP_config::$oxd_host_port = $configOBJECT->oxd_host_port;
         Oxd_RP_config::$authorization_redirect_uri = $configOBJECT->authorization_redirect_uri;
@@ -119,7 +115,7 @@ class Client_Socket_OXD_RP{
      * @return object
      */
     public function oxd_socket_request($data,$char_count = 8192){
-        if (!self::$socket = stream_socket_client( Oxd_RP_config::$oxd_host_ip . ':' . Oxd_RP_config::$oxd_host_port, $errno, $errstr, STREAM_CLIENT_PERSISTENT)) {
+        if (!self::$socket = stream_socket_client('127.0.0.1:' . Oxd_RP_config::$oxd_host_port, $errno, $errstr, STREAM_CLIENT_PERSISTENT)) {
             $this->log("Client: socket::socket_connect is not connected, error: ",$errstr);
             die($errno);
         }else{

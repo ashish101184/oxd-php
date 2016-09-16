@@ -40,7 +40,7 @@
 /**
  * Client tokens code class
  *
- * Class is connecting to oXD-server via socket, and getting token code from gluu-server.
+ * Class is connecting to oxd-server via socket, and getting token code from gluu-server.
  *
  * @package		Gluu-oxd-library
  * @subpackage	Libraries
@@ -69,33 +69,28 @@ class Get_tokens_by_code extends Client_OXD_RP
      */
     private $request_state = null;
     /**
-     * @var string $request_scopes                           For getting needed scopes data from gluu-server
-     */
-    private $request_scopes  = null;
-
-    /**
-     * Response parameter from oXD-server
+     * Response parameter from oxd-server
      * It need to using for get_user_info and logout classes
      *
      * @var string $response_access_token
      */
     private $response_access_token;
     /**
-     * Response parameter from oXD-server
+     * Response parameter from oxd-server
      * Showing user expires time
      *
      * @var string $response_expires_in
      */
     private $response_expires_in;
     /**
-     * Response parameter from oXD-server
+     * Response parameter from oxd-server
      * It need to using for get_user_info and logout classes
      *
      * @var string $response_id_token
      */
     private $response_id_token;
     /**
-     * Response parameter from oXD-server
+     * Response parameter from oxd-server
      * Showing user claimses and data
      *
      * @var string $response_expires_in
@@ -217,7 +212,7 @@ class Get_tokens_by_code extends Client_OXD_RP
     }
 
     /**
-     * Protocol command to oXD server
+     * Protocol command to oxd server
      * @return void
      */
     public function setCommand()
@@ -225,14 +220,15 @@ class Get_tokens_by_code extends Client_OXD_RP
         $this->command = 'get_tokens_by_code';
     }
     /**
-     * Protocol parameter to oXD server
+     * Protocol parameter to oxd server
      * @return void
      */
     public function setParams()
     {
         $this->params = array(
             "oxd_id" => $this->getRequestOxdId(),
-            "code" => $this->getRequestCode()
+            "code" => $this->getRequestCode(),
+            "state" => $this->getRequestState()
         );
     }
 

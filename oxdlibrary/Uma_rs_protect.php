@@ -41,7 +41,7 @@
 /**
  * UMA RS Protect resources class
  *
- * Class is connecting to oXD-server via socket, and adding resources in gluu-server.
+ * Class is connecting to oxd-server via socket, and adding resources in gluu-server.
  *
  * @package		Gluu-oxd-library
  * @subpackage	Libraries
@@ -128,7 +128,7 @@ class Uma_rs_protect extends Client_OXD_RP{
         return  $this->request_condition;
     }
     /**
-     * Protocol command to oXD server
+     * Protocol command to oxd server
      * @return void
      */
     public function setCommand()
@@ -137,7 +137,7 @@ class Uma_rs_protect extends Client_OXD_RP{
     }
 
     /**
-     * Protocol parameter to oXD server
+     * Protocol parameter to oxd server
      * @return void
      */
     public function setParams()

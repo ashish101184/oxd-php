@@ -73,7 +73,6 @@ registration, and which is saved to static values in the class Oxd\_RP\_config.
 class Oxd_RP_config
 {
     public static $op_host;
-    public static $oxd_host_ip;
     public static $oxd_host_port;
     public static $authorization_redirect_uri;
     public static $logout_redirect_uri;

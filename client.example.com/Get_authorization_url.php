@@ -40,7 +40,7 @@
 /**
  * Client authorization class
  *
- * Class is connecting to oXD-server via socket, and getting authorization url from gluu-server.
+ * Class is connecting to oxd-server via socket, and getting authorization url from gluu-server.
  *
  * @package		Gluu-oxd-library
  * @subpackage	Libraries
@@ -56,13 +56,25 @@ require_once 'Client_OXD_RP.php';
 class Get_authorization_url extends Client_OXD_RP
 {
     /**
-     * @var string $request_oxd_id                            This parameter you must get after registration site in gluu-server
+     * @var string $request_oxd_id                          This parameter you must get after registration site in gluu-server
      */
     private $request_oxd_id = null;
+    /**
+     * @var array $request_scope                            May be skipped (by default takes scopes that was registered during register_site command)
+     */
+    private $request_scope = null;
     /**
      * @var array $request_acr_values                        It is gluu-server login parameter type
      */
     private $request_acr_values = null;
+    /**
+     * @var string $request_prompt                           Skipped if no value specified or missed. prompt=login is required if you want to force alter current user session (in case user is already logged in from site1 and site2 construsts authorization request and want to force alter current user session)
+     */
+    private $request_prompt = null;
+    /**
+     * @var string $request_prompt                           Hosted domain google OP parameter https://developers.google.com/identity/protocols/OpenIDConnect#hd-param
+     */
+    private $request_hd = null;
 
     /**
      * It is authorization url to gluu server.
@@ -116,6 +128,54 @@ class Get_authorization_url extends Client_OXD_RP
     }
 
     /**
+     * @return array
+     */
+    public function getRequestScope()
+    {
+        return $this->request_scope;
+    }
+
+    /**
+     * @param array $request_scope
+     */
+    public function setRequestScope($request_scope)
+    {
+        $this->request_scope = $request_scope;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRequestPrompt()
+    {
+        return $this->request_prompt;
+    }
+
+    /**
+     * @param string $request_prompt
+     */
+    public function setRequestPrompt($request_prompt)
+    {
+        $this->request_prompt = $request_prompt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRequestHd()
+    {
+        return $this->request_hd;
+    }
+
+    /**
+     * @param string $request_hd
+     */
+    public function setRequestHd($request_hd)
+    {
+        $this->request_hd = $request_hd;
+    }
+
+    /**
      * @return string
      */
     public function getResponseAuthorizationUrl()
@@ -124,7 +184,7 @@ class Get_authorization_url extends Client_OXD_RP
         return $this->response_authorization_url;
     }
     /**
-     * Protocol command to oXD server
+     * Protocol command to oxd server
      * @return void
      */
     public function setCommand()
@@ -132,15 +192,17 @@ class Get_authorization_url extends Client_OXD_RP
         $this->command = 'get_authorization_url';
     }
     /**
-     * Protocol parameter to oXD server
+     * Protocol parameter to oxd server
      * @return void
      */
     public function setParams()
     {
         $this->params = array(
             "oxd_id" => $this->getRequestOxdId(),
+            "scope" => $this->getRequestScope(),
             "acr_values" => $this->getRequestAcrValues(),
-            //"prompt"=>"login"
+            "prompt" => $this->getRequestPrompt(),
+            "hd" => $this->getRequestHd()
         );
     }
 

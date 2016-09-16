@@ -41,7 +41,7 @@
 /**
  * UMA RP - Get GAT class
  *
- * Class is connecting to oXD-server via socket, and getting GAT from gluu-server.
+ * Class is connecting to oxd-server via socket, and getting GAT from gluu-server.
  *
  * @package		Gluu-oxd-library
  * @subpackage	Libraries
@@ -67,7 +67,7 @@ class Uma_rp_get_gat extends Client_OXD_RP{
     private $request_scopes = null;
 
     /**
-     * Response parameter from oXD-server
+     * Response parameter from oxd-server
      * GAT stands for Gluu Access Token
      *
      * @var string $response_gat
@@ -127,7 +127,7 @@ class Uma_rp_get_gat extends Client_OXD_RP{
     }
 
     /**
-     * Protocol command to oXD server
+     * Protocol command to oxd server
      * @return void
      */
     public function setCommand()
@@ -136,7 +136,7 @@ class Uma_rp_get_gat extends Client_OXD_RP{
     }
 
     /**
-     * Protocol parameter to oXD server
+     * Protocol parameter to oxd server
      * @return void
      */
     public function setParams()

@@ -127,7 +127,7 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
-     * send function sends the command to the oxD server.
+     * send function sends the command to the oxd server.
      *
      * Args:
      * command (dict) - Dict representation of the JSON command string
@@ -204,7 +204,7 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
     }
 
     /**
-     * Data which need to send oXD server.
+     * Data which need to send oxd server.
      *
      * @return array
      */

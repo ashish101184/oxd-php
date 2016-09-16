@@ -2,7 +2,6 @@
 /*
  * Created by Vlad Karapetyan
 */
-
     session_start();
     echo '<p>User login process via OpenID.</p>';
     require_once '../Logout.php';

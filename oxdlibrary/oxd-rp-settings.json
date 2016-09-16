@@ -1,5 +1,4 @@
 {
-  "oxd_host_ip": "127.0.0.1",
   "op_host": "",
   "oxd_host_port":8099,
   "authorization_redirect_uri" : "",

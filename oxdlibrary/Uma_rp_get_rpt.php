@@ -42,7 +42,7 @@
  * UMA Requesting Party
  * UMA RP - Get RPT class
  *
- * Class is connecting to oXD-server via socket, and getting RPT from gluu-server.
+ * Class is connecting to oxd-server via socket, and getting RPT from gluu-server.
  *
  * @package		Gluu-oxd-library
  * @subpackage	Libraries
@@ -69,7 +69,7 @@ class Uma_rp_get_rpt extends Client_OXD_RP{
     private $request_force_new = false;
 
     /**
-     * Response parameter from oXD-server
+     * Response parameter from oxd-server
      * Gluu RP Token
      *
      * @var string $response_rpt
@@ -130,7 +130,7 @@ class Uma_rp_get_rpt extends Client_OXD_RP{
     }
 
     /**
-     * Protocol command to oXD server
+     * Protocol command to oxd server
      * @return void
      */
     public function setCommand()
@@ -139,7 +139,7 @@ class Uma_rp_get_rpt extends Client_OXD_RP{
     }
 
     /**
-     * Protocol parameter to oXD server
+     * Protocol parameter to oxd server
      * @return void
      */
     public function setParams()
