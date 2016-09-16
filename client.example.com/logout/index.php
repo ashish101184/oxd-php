@@ -3,6 +3,8 @@
  * Created by Vlad Karapetyan
 */
     session_start();
+if(!empty($_SESSION['state']) and !empty($_SESSION['user_oxd_id_token']) and !empty($_SESSION['session_state'])){
+    //var_dump($_SESSION);exit;
     echo '<p>User login process via OpenID.</p>';
     require_once '../Logout.php';
     echo '<p>Logout.</p>';
@@ -15,9 +17,9 @@
     $logout->setRequestState($_SESSION['state']);
     $logout->request();
 
-    unset($_SESSION['user_oxd_id_token']);
-    unset($_SESSION['user_oxd_access_token']);
-    unset($_SESSION['session_state']);
-    unset($_SESSION['state']);
+    session_destroy();
     header("Location: ".$logout->getResponseObject()->data->uri);
-exit;
+    exit;
+}else{
+    header("Location: https://client.example.com/");
+}

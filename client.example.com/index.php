@@ -13,7 +13,7 @@ if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_
         $register_site->setRequestOpHost($_POST['gluu_server_url']);
         $register_site->setRequestAcrValues(Oxd_RP_config::$acr_values);
         $register_site->setRequestAuthorizationRedirectUri(Oxd_RP_config::$authorization_redirect_uri);
-        $register_site->setRequestPostLogoutRedirectUri(Oxd_RP_config::$post_logout_redirect_ur);
+        $register_site->setRequestPostLogoutRedirectUri(Oxd_RP_config::$post_logout_redirect_uri);
         $register_site->setRequestContacts([$_POST['your_mail']]);
         $register_site->setRequestGrantTypes(Oxd_RP_config::$grant_types);
         $register_site->setRequestResponseTypes(Oxd_RP_config::$response_types);

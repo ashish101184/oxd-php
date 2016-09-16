@@ -78,7 +78,6 @@ class Oxd_RP_config
     public static $post_logout_redirect_uri;
     public static $scope;
     public static $application_type;
-    public static $redirect_uris;
     public static $response_types;
     public static $grant_types;
     public static $acr_values;

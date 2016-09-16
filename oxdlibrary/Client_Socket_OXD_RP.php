@@ -99,7 +99,7 @@ class Client_Socket_OXD_RP{
         Oxd_RP_config::$op_host = $configOBJECT->op_host;
         Oxd_RP_config::$oxd_host_port = $configOBJECT->oxd_host_port;
         Oxd_RP_config::$authorization_redirect_uri = $configOBJECT->authorization_redirect_uri;
-        Oxd_RP_config::$logout_redirect_uri = $configOBJECT->logout_redirect_uri;
+        Oxd_RP_config::$post_logout_redirect_uri = $configOBJECT->post_logout_redirect_uri;
         Oxd_RP_config::$scope = $configOBJECT->scope;
         Oxd_RP_config::$application_type = $configOBJECT->application_type;
         Oxd_RP_config::$response_types = $configOBJECT->response_types;
