@@ -73,12 +73,11 @@ class Client_Socket_OXD_RP{
 
         $configJSON = file_get_contents($this->base_url.'/oxd-rp-settings.json');
         $configOBJECT = json_decode($configJSON);
-        if(!$configOBJECT->authorization_redirect_uri){
-            if(!$configJSON = file_get_contents($this->base_url.'/oxd-rp-settings-test.json')){
+        if(!$configOBJECT->authorization_redirect_uri &&
+            !$configJSON = file_get_contents($this->base_url.'/oxd-rp-settings-test.json')){
                 $error = error_get_last();
                 $this->log("oxd-configuration-test: ", 'Error problem with json data.');
                 $this->error_message("HTTP request failed. Error was: " . $error['message']);
-            }
         }
         $configOBJECT = json_decode($configJSON);
         $this->define_variables($configOBJECT);

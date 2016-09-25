@@ -276,7 +276,7 @@ abstract class Client_OXD_RP extends Client_Socket_OXD_RP{
      * @return bool
      **/
     public function is_JSON($string){
-        return is_string($string) && is_object(json_decode($string)) ? true : false;
+        return (is_string($string) && is_object(json_decode($string)));
     }
 
 }

@@ -2,7 +2,7 @@
 <?php
 
 session_start();
-if (isset($_SESSION['oxd_id']) and empty($_SESSION['state'])) {
+if (isset($_SESSION['oxd_id']) && empty($_SESSION['state'])) {
 
     if (isset($_REQUEST['code']) && isset($_REQUEST['state']) && !empty($_REQUEST['code']) && !empty($_REQUEST['state'])) {
 

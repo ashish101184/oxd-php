@@ -5,7 +5,7 @@
  * Created by  Vlad Karapetyan
  */
 session_start();
-//session_destroy();exit;
+
 if(isset($_POST['submit']) && isset($_POST['your_mail']) && !empty($_POST['your_mail']) && isset($_POST['gluu_server_url']) && !empty($_POST['gluu_server_url'])){
     if(empty($_SESSION['oxd_id'])){
         require_once './Register_site.php';
